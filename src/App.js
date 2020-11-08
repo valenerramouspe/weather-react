@@ -12,6 +12,15 @@ export default function App() {
         <City />
         <Forecast />
       </div>
+      <span class="linkToGit">
+        <a
+          href="https://github.com/valenerramouspe/weather-react"
+          target="_blank"
+        >
+          Open source code
+        </a>{" "}
+        by Valentina Erramouspe
+      </span>
     </div>
   );
 }
