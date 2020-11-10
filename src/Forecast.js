@@ -1,34 +1,21 @@
 import React from "react";
-import Day from "./Day";
+import ForecastDay from "./ForecastDay";
+import Weekday from "./Weekday";
 
-export default function Forecast() {
+export default function Forecast(props) {
+  let data = props.data;
   return (
     <div className="forecastRow row">
-      <Day
-        weekday="Friday"
-        temp="16-20"
-        img="http://openweathermap.org/img/w/01d.png"
-      />
-      <Day
-        weekday="Saturday"
-        temp="11-18"
-        img="http://openweathermap.org/img/w/03d.png"
-      />
-      <Day
-        weekday="Sunday"
-        temp="9-14"
-        img="http://openweathermap.org/img/w/11d.png"
-      />
-      <Day
-        weekday="Monday"
-        temp="12-14"
-        img="http://openweathermap.org/img/w/02d.png"
-      />
-      <Day
-        weekday="Tuesday"
-        temp="15-23"
-        img="http://openweathermap.org/img/w/13d.png"
-      />
+      {data.slice(1).map((weather, i) => (
+        <ForecastDay
+          key={i}
+          weekday={<Weekday time={weather.dt * 1000} />}
+          temp={`${Math.round(weather.temp.min)} - ${Math.round(
+            weather.temp.max
+          )}`}
+          img={weather.weather[0].icon}
+        />
+      ))}
     </div>
   );
 }

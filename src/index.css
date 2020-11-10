@@ -7,7 +7,7 @@
 .container {
   border: 5px solid #214b5e;
   border-radius: 20px;
-  background-color: #d2d2d2;
+  background-color: #d0ecd3;
 }
 
 .searchBar {
@@ -71,7 +71,11 @@ h2 {
   min-width: 300px;
 }
 
-.weatherToday img {
+.todayIcon {
+  margin-bottom: -30%;
+}
+
+.weatherToday canvas {
   max-height: 50%;
 }
 
@@ -102,9 +106,10 @@ h2 {
 
 .forecastTemp {
   text-align: center;
+  font-weight: bold;
 }
 
-.forecastDay img {
+.forecastDay canvas {
   height: 70px;
   width: 70px;
   min-height: 40px;
@@ -139,4 +144,9 @@ sup .active:hover {
   cursor: default;
   text-decoration: none;
   color: black;
+}
+
+.spinner {
+  text-align: center;
+  margin-top: 10%;
 }

@@ -1,18 +1,21 @@
 import React from "react";
 import CurrentWeather from "./CurrentWeather";
-import CurrentCity from "./CurrentCity";
+import CurrentTime from "./CurrentTime";
 
-export default function City() {
+export default function City(props) {
   return (
     <div className="header row">
       <CurrentWeather
-        temp="29C°"
-        weather="Rain"
-        humidity="82%"
-        wind="24 km/h"
-        img="http://openweathermap.org/img/w/10d.png"
+        temp={props.cityData.temperature}
+        weather={props.cityData.description}
+        humidity={props.cityData.humidity}
+        wind={props.cityData.wind}
+        icon={props.cityData.icon}
       />
-      <CurrentCity name="Buenos Aires" date="Tuesday November 3" time="2:30" />
+      <div className="currentCity col-7">
+        <p className="cityName col-12">{props.cityData.name}</p>
+        <CurrentTime data={props.cityData.timeZone} />
+      </div>
     </div>
   );
 }
